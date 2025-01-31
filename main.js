@@ -77,4 +77,16 @@ function startNumberGuessGame(){
     countDisplay.textContent = `試行回数: ${count}`;
     gameContainer.appendChild(countDisplay);
 }  
-startNumberGuessGame();
+const gameSelector = document.getElementById('game-select');
+const gameContainer = document.getElementById('game-container');
+gameSelector.addEventListener('change',function(){
+    gameContainer.innerHTML = '';
+    switch(gameSelector.value){
+case 'number-guess':
+    startNumberGuessGame();
+    break;
+    case 'clicker':
+        clickcounterGame();
+        break;
+    }
+});
